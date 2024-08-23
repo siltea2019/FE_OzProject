@@ -1,0 +1,63 @@
+/* 페이지 기본값 설정 */
+#root {
+  margin: 0 auto;
+  padding: 0;
+  color: rgb(0, 0, 0, 0.87);
+}
+
+/* 메인 랜딩페이지 헤더 */
+header {
+  margin: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: end;
+}
+
+/* 메인 랜딩페이지 섹션(영화리스트) */
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-items: center;
+}
+
+/* 영화리스트 정령 */
+.movieList {
+  margin: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* 개별 영화 카드 정렬 */
+.movieCard {
+  display: flex;
+}
+
+/* 개별 영화 카드 이미지 */
+.movieCard .Poster {
+}
+
+/* 영화카드 */
+li {
+  list-style: none;
+}
+
+/* 상세페이지 전체 */
+
+.movieDetail {
+}
+
+/* 상세페이지 영화 메인포스터 */
+
+.movieDetail .Poster {
+}
+
+/* 상세페이지 컨텐츠 전체 */
+
+/* 상세페이지 컨텐츠 개별 */
