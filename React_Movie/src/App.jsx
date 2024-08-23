@@ -3,7 +3,6 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import MovieListData from './assets/data/movieListData.json';
 // import MovieDetailData from './assets/data/movieDetailData.json';
-// import MovieDetailData from './assets/data/movieDetailData.json';
 import MovieCard from './components/MovieCard';
 import MovieDetail from './components/MovieDetail';
 import NavBar from './components/NavBar';
@@ -62,7 +61,6 @@ function App() {
   return (
     <>
       <header className="header">{<NavBar />}</header>
-      <header className="header">{<NavBar />}</header>
       {/* Route 페이지 연결 */}
       <Routes>
         <Route
@@ -72,8 +70,6 @@ function App() {
           }
         />
         <Route path="/details" element={<MovieDetail />} />
-        <Route path="/join" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
         <Route path="/join" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
