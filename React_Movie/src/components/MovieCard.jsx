@@ -3,15 +3,17 @@ import MovieDetailData from '../assets/data/movieDetailData.json';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-function MovieCard({ movieList, setMovieList }) {
-  console.log('movieList', movieList);
+function MovieCard({ movieList /* setMovieList */ }) {
+  console.log(movieList);
 
-  // const movieData = movieList.results.map((list) => ({
-  //   id: list.id,
-  //   name: list.title,
-  //   poster: `https://image.tmdb.org/t/p/w200${list.poster_path}`,
-  //   vote_average: list.vote_average,
-  // }));
+  /* const movieData = movieList.results.map((list) => ({
+    id: list.id,
+    name: list.title,
+    poster: `https://image.tmdb.org/t/p/w200${list.poster_path}`,
+    vote_average: list.vote_average,
+  }));
+
+  console.log(movieData); */
 
   return (
     <ul className="movieList">
