@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { POPULAR_API_URL } from '../components/config';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 const API_TOKEN = import.meta.env.VITE_API_TOKEN;
@@ -43,15 +42,17 @@ export default function useAPI(url, CRUD) {
   // [] (비어있는 의존성배열) : 마운트(첫 랜더링) 될때만 useEffect안의 함수 실행
   useEffect(() => {
     const fetchAPI2 = fetchAPI(url, options);
+    setLoading(false);
     console.log(fetchAPI2);
-  }, []);
+  }, [setGetApiData, setLoading]);
 
-  // fetch할때 받아온 데이터=jsonData를 setGetApiData 상태함수에 담음
+  // fetch할때 받아온 데이터(=jsonData)를 setGetApiData 상태함수에 담음
   // fetch가 성공하면 기초값이 true였던 setLoading 상태함수를 false로 바꾸어
   // fetch가 성공했다는 값을 확인할 수 있음
-  return { getApiData, loading };
+  return { getApiData, url, loading };
 }
 
+// TMdb에서 가져온 코드
 // fetch('https://api.themoviedb.org/3/movie/popular?language=ko&page=1', options)
 //   .then(response => response.json())
 //   .then(response => console.log(response))
