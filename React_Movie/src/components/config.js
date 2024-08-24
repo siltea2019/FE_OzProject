@@ -3,7 +3,10 @@
 /* API url */
 const API_URL = 'https://api.themoviedb.org/3/';
 
-/*  */
+/* movie */
+const MOVIE_URL = 'https://api.themoviedb.org/3/movie';
+
+/* pupular */
 const POPULAR_API_URL = 'https://api.themoviedb.org/3/movie/popular';
 
 /* 이미지 url */
@@ -16,6 +19,7 @@ const CONFIG_API_TOKEN = import.meta.env.VITE_API_TOKEN;
 /* export 해서 내보내는 것 잊지마세요! */
 export {
   API_URL,
+  MOVIE_URL,
   IMAGE_BASE_URL,
   CONFIG_API_KEY,
   CONFIG_API_TOKEN,

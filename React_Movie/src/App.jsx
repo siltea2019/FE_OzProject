@@ -6,7 +6,6 @@ import MovieDetail from './components/MovieDetail';
 import NavBar from './components/NavBar';
 import Login from './components/Login';
 import SignUp from './components/Signup';
-import useAPI from './hooks/useAPI';
 
 // 컴포넌트가 필요할때 소환하는 lazy
 // const MovieCard = lazy(() => import('./components/MovieCard'));
@@ -14,16 +13,6 @@ import useAPI from './hooks/useAPI';
 export default function App() {
   const [movieList, setMovieList] = useState([]);
   const [movieListLoading, setmovieListLoading] = useState(true);
-
-  // const apiFecthData = useAPI(
-  //   `https://api.themoviedb.org/3/movie/popular?language=ko&page=1`,
-  //   'GET'
-  // );
-
-  // useEffect(() => {
-  //   setMovieList(apiFecthData.getApiData);
-  //   setmovieListLoading(false);
-  // }, [apiFecthData, setMovieList]);
 
   return (
     <>
@@ -41,7 +30,15 @@ export default function App() {
             />
           }
         />
-        <Route path="/details" element={<MovieDetail />} />
+        <Route
+          path="/details/:movieId"
+          element={
+            <MovieDetail
+              movieListLoading={movieListLoading}
+              setmovieListLoading={setmovieListLoading}
+            />
+          }
+        />
         <Route path="/join" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
