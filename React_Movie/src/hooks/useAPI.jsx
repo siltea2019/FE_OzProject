@@ -52,7 +52,7 @@ export default function useAPI(url, CRUD) {
   return { getApiData, url, loading };
 }
 
-// TMdb에서 가져온 코드
+// TMdb에서 가져온 코드중 일부
 // fetch('https://api.themoviedb.org/3/movie/popular?language=ko&page=1', options)
 //   .then(response => response.json())
 //   .then(response => console.log(response))

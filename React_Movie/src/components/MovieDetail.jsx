@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Route, useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import useAPI from '../hooks/useAPI';
 import { MOVIE_URL } from './config';
 
@@ -8,35 +8,31 @@ function MovieDetail({ setmovieListLoading }) {
   // useParams : 콜론(:)뒤에 정의되어있는 값을 가져옴
   const params = useParams();
   const detailURL = `https://api.themoviedb.org/3/movie/${params.movieId}?language=ko`;
-  console.log(params.movieId);
+  // params.movieId값 가져오는지 확인
+  // console.log(params.movieId);
 
   const apiFecthData = useAPI(detailURL, 'GET');
-
-  console.log(apiFecthData.getApiData);
-
   const [detailData, setDetailData] = useState([]);
-
   const genre = detailData.genres;
 
-  console.log(genre);
+  // 장르값 제대로 찍히는지 확인
+  // console.log(genre);
 
   useEffect(() => {
+    // apiFecthData.getApiData값이 truthy한 값일때 {}이후 실행
+    // truthy한 경우 아래 함수를 호출하여 데이터를 저장하고 로딩상태 업데이트
     if (apiFecthData.getApiData) {
       setDetailData(apiFecthData.getApiData);
-      setmovieListLoading(false); // 로딩 완료 후 false로 설정
+      setmovieListLoading(false); // 로딩 완료 후 false로 설정되는 부분
     }
   }, [apiFecthData, setDetailData, genre]); // apiFecthData.getApiData가 업데이트될 때만 실행
-
-  // useEffect(() => {
-  //   setDetailData(apiFecthData.getApiData);
-  //   setmovieListLoading(false);
-  // }, [apiFecthData, setDetailData]);
 
   if (!detailData) {
     // 데이터를 불러오는 동안 로딩 메시지 표시
     return <div>Loading...</div>;
   }
 
+  // 가져오지못한 데이터를 map메서드로 확인하려해서 자꾸 에러뜸
   // const movieDetailDatas =
   //   detailData?.map((el) => ({
   //     id: el.id,
@@ -49,6 +45,7 @@ function MovieDetail({ setmovieListLoading }) {
 
   const { id, title, vote_average, poster_path, genres, overview } = detailData;
 
+  // 장르 로딩되는 부분 확인
   console.log(genre);
 
   return (

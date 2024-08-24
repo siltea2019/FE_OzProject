@@ -19,28 +19,14 @@ function MovieCard({ movieList, setMovieList, setmovieListLoading }) {
       vote_average: list.vote_average,
     })) || [];
 
+  // 틀린코드 같은데 왜 적용이 안되는지 확인해보고 공부
   // const { id, title, vote_average, poster_path, genres, overview } = detailData;
 
-  console.log(movieList);
-  console.log(movieDatas);
+  // console.log(movieList);
+  // console.log(movieDatas);
 
   return (
     <>
-      {/* <ul className="movieList">
-        <li>
-          <Link key={movieDatas.id} to="/details">
-            <div className="movieCard">
-              
-              <img
-                className="movieCard Poster"
-                src={`https://image.tmdb.org/t/p/w200${movieDatas.poster_path}`}
-              />
-            </div>
-            <div>{movieDatas.title}</div>
-            <div>{movieDatas.vote_average}</div>
-          </Link>
-        </li>
-      </ul> */}
       <ul className="movieList">
         {movieDatas.map((card) => (
           <li key={card.id}>
