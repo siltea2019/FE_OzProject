@@ -46,8 +46,6 @@ function MovieDetail({ setMovieListLoading }) {
   const { id, title, vote_average, poster_path, genres, overview } = detailData;
 
   // 장르 로딩되는 부분 확인
-  console.log(genre);
-
   return (
     <>
       <main>

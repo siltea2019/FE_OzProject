@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 // const API_KEY = import.meta.env.VITE_API_KEY;
 const API_TOKEN = import.meta.env.VITE_API_TOKEN;
@@ -14,12 +14,13 @@ export default function useAPI(url, method) {
   // 상태함수를 이용하여 상태를 관리하고 상태값에 데이터를 저장하기 위해
 
   // URL뒤에 CRUD값과 API토큰값을 붙여 응답을 받아오는 변수
-  const options = {
+  const options = useMemo {
     method: method,
     headers: {
       accept: 'application/json',
       Authorization: `Bearer ${API_TOKEN}`,
     },
+    [method]
   };
 
   // async 함수 : 비동기 작업 수행 = Promise를 값으로 반환(return값)
@@ -52,7 +53,7 @@ export default function useAPI(url, method) {
   // fetch할때 받아온 데이터(=jsonData)를 setGetApiData 상태함수에 담음
   // fetch가 성공하면 기초값이 true였던 setLoading 상태함수를 false로 바꾸어
   // fetch가 성공했다는 값을 확인할 수 있음
-  return { getApiData, url, loading };
+  return { getApiData, loading };
 }
 
 // TMdb에서 가져온 코드중 일부

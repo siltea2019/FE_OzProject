@@ -1,12 +1,43 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
 import useDebounce from '../hooks/useDebounce';
-import { SEARCH_URL } from './config';
+import { CONFIG_API_TOKEN, SEARCH_URL } from './config';
 import useAPI from '../hooks/useAPI';
+const API_TOKEN = import.meta.env.VITE_API_TOKEN;
 
-export default function Search() {
-  const [seearchList, setSearchList] = useState([]);
+export default function Search({ movieList }) {
   const [inputValue, setInputValue] = useState('');
+
+  const [searchDebounce] = useDebounce(inputValue, 3000);
+  const searchUrl = `https://api.themoviedb.org/3/search/movie?query=${searchDebounce}&include_adult=false&language=ko&page=1`;
+
+  const [getApiData, setGetApiData] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: `Bearer ${API_TOKEN}`,
+    },
+  };
+
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch(searchUrl, options);
+      const jsonData = await response.json();
+      setGetApiData(jsonData);
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+      alert('데이터를 불러오지 못했습니다');
+    } finally {
+      setLoading(false);
+    }
+    return getApiData, loading;
+  };
+
+  console.log(getApiData);
 
   return (
     <>
@@ -24,7 +55,7 @@ export default function Search() {
         <button
           className="header_Buttons Search"
           alt="검색"
-          onClick={() => setInputValue(inputValue)}
+          onClick={() => setInputValue()}
         >
           🔍
         </button>

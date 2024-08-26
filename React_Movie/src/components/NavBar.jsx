@@ -1,7 +1,7 @@
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Search from './Search';
 
-export default function NavBar() {
+export default function NavBar({ setMovieList }) {
   const headerNav = useNavigate();
 
   return (
@@ -13,9 +13,10 @@ export default function NavBar() {
           onClick={() => headerNav('/')}
         >
           Suving
-          <span>{<Search />}</span>
         </div>
-
+        <div>
+          <span>{<Search setMovieList={setMovieList} />}</span>
+        </div>
         <button className="header_Buttons Setting" alt="다크모드설정">
           다크모드
         </button>

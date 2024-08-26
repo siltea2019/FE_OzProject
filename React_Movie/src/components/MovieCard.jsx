@@ -6,7 +6,7 @@ import { POPULAR_API_URL } from './config';
 function MovieCard({ movieList, setMovieList, setMovieListLoading }) {
   const listURL = `${POPULAR_API_URL}?language=ko`;
 
-  const apiFetchData = useAPI(listURL, 'GET');
+  const apiFetchData = useAPI({ url: listURL, method: 'GET' });
 
   useEffect(() => {
     setMovieList(apiFetchData.getApiData);

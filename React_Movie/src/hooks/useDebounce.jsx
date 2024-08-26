@@ -27,9 +27,9 @@ export default function useDebounce(value, delay) {
     return () => {
       clearTimeout(handler);
     };
-  }, [value, delay]);
+  }, [value]);
 
-  return debouncedValue;
+  return [debouncedValue];
 }
 
 //디바운스 검색어 조합 => 분리가능

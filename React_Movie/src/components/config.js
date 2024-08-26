@@ -11,7 +11,7 @@ const POPULAR_API_URL = `${API_URL}movie/popular`;
 // https://api.themoviedb.org/3/movie/popular?language=en-US&page=1
 
 /* search */
-const SEARCH_URL = `${API_URL}search/movie?`;
+const SEARCH_URL = `${API_URL}search/movie?query=`;
 /* https://api.themoviedb.org/3/search/movie?query=%EC%9D%B8&include_adult=true&language=ko&page=1 */
 
 /* 이미지 url */

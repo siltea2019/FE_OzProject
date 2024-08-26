@@ -14,9 +14,13 @@ export default function App() {
   const [movieList, setMovieList] = useState([]);
   const [movieListLoading, setMovieListLoading] = useState(true);
 
+  console.log(movieList);
+
   return (
     <>
-      <header className="header">{<NavBar />}</header>
+      <header className="header">
+        {<NavBar setMovieList={setMovieList} />}
+      </header>
       {/* Route 페이지 연결 */}
       <Routes>
         <Route
