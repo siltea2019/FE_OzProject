@@ -9,6 +9,10 @@ const MOVIE_URL = 'https://api.themoviedb.org/3/movie';
 /* pupular */
 const POPULAR_API_URL = 'https://api.themoviedb.org/3/movie/popular';
 
+/* search */
+const SEARCH_URL =
+  'https://api.themoviedb.org/3/search/movie?query=%EC%9D%B8&include_adult=true&language=ko&page=1';
+
 /* 이미지 url */
 const IMAGE_BASE_URL = 'http://image.tmdb.org/t/p/';
 // https://api.themoviedb.org/3/collection/{collection_id}/images
@@ -20,8 +24,9 @@ const CONFIG_API_TOKEN = import.meta.env.VITE_API_TOKEN;
 export {
   API_URL,
   MOVIE_URL,
+  SEARCH_URL,
+  POPULAR_API_URL,
   IMAGE_BASE_URL,
   CONFIG_API_KEY,
   CONFIG_API_TOKEN,
-  POPULAR_API_URL,
 };

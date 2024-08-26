@@ -4,7 +4,9 @@ import useAPI from '../hooks/useAPI';
 import { POPULAR_API_URL } from './config';
 
 function MovieCard({ movieList, setMovieList, setmovieListLoading }) {
-  const apiFecthData = useAPI(POPULAR_API_URL, 'GET');
+  const listURL = `${POPULAR_API_URL}?language=ko`;
+
+  const apiFecthData = useAPI(listURL, 'GET');
 
   useEffect(() => {
     setMovieList(apiFecthData.getApiData);

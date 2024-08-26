@@ -1,5 +1,5 @@
 import { lazy, useEffect, useState } from 'react';
-import './App.css';
+import './App.scss';
 import { Route, Routes } from 'react-router-dom';
 import MovieCard from './components/MovieCard';
 import MovieDetail from './components/MovieDetail';
