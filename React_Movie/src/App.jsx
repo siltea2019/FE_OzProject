@@ -12,7 +12,7 @@ import SignUp from './components/Signup';
 
 export default function App() {
   const [movieList, setMovieList] = useState([]);
-  const [movieListLoading, setmovieListLoading] = useState(true);
+  const [movieListLoading, setMovieListLoading] = useState(true);
 
   return (
     <>
@@ -26,7 +26,7 @@ export default function App() {
               movieList={movieList}
               setMovieList={setMovieList}
               movieListLoading={movieListLoading}
-              setmovieListLoading={setmovieListLoading}
+              setMovieListLoading={setMovieListLoading}
             />
           }
         />
@@ -35,7 +35,7 @@ export default function App() {
           element={
             <MovieDetail
               movieListLoading={movieListLoading}
-              setmovieListLoading={setmovieListLoading}
+              setMovieListLoading={setMovieListLoading}
             />
           }
         />

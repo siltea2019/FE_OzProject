@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import useAPI from '../hooks/useAPI';
 import { MOVIE_URL } from './config';
 
-function MovieDetail({ setmovieListLoading }) {
+function MovieDetail({ setMovieListLoading }) {
   // path="/details/:movieId"
   // useParams : 콜론(:)뒤에 정의되어있는 값을 가져옴
   const params = useParams();
@@ -23,7 +23,7 @@ function MovieDetail({ setmovieListLoading }) {
     // truthy한 경우 아래 함수를 호출하여 데이터를 저장하고 로딩상태 업데이트
     if (apiFecthData.getApiData) {
       setDetailData(apiFecthData.getApiData);
-      setmovieListLoading(false); // 로딩 완료 후 false로 설정되는 부분
+      setMovieListLoading(false); // 로딩 완료 후 false로 설정되는 부분
     }
   }, [apiFecthData, setDetailData, genre]); // apiFecthData.getApiData가 업데이트될 때만 실행
 
@@ -64,8 +64,8 @@ function MovieDetail({ setmovieListLoading }) {
         <div className="movieDetail Vote">{detailData.vote_average}</div>
         <div className="movieDetail Genres">
           {/* 로딩되는 중간에 map을 사용하면 error남 */}
-          {/* 삼항연산자 사용 setmovieListLoading값이 true일때 로딩중화면표시 */}
-          {setmovieListLoading ? (
+          {/* 삼항연산자 사용 setMovieListLoading값이 true일때 로딩중화면표시 */}
+          {setMovieListLoading ? (
             genres &&
             genre.map((el) => {
               return <li key={el.id}>{el.name}</li>;

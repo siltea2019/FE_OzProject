@@ -21,13 +21,13 @@ export default function SignUp() {
           <fieldset>
             <input
               type="password"
-              className="Passowrd 1"
+              className="Password 1"
               title="비밀번호"
               placeholder="비밀번호를 입력해주세요"
             />
             <input
               type="password"
-              className="Passowrd 2"
+              className="Password 2"
               title="비밀번호확인"
               placeholder="비밀번호를 한번더 입력해주세요"
             />
