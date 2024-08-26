@@ -3,17 +3,17 @@ import { useEffect, useState } from 'react';
 import useAPI from '../hooks/useAPI';
 import { POPULAR_API_URL } from './config';
 
-function MovieCard({ movieList, setMovieList, setMovieListLoading }) {
+function MovieCard({ movieList, setMovieList, setmovieListLoading }) {
   const listURL = `${POPULAR_API_URL}?language=ko`;
 
-  const apiFetchData = useAPI({ url: listURL, method: 'GET' });
+  const apiFecthData = useAPI(listURL, 'GET');
 
   useEffect(() => {
-    setMovieList(apiFetchData.getApiData);
-    setMovieListLoading(false);
-  }, [apiFetchData, setMovieList]);
+    setMovieList(apiFecthData.getApiData);
+    setmovieListLoading(false);
+  }, [apiFecthData, setMovieList]);
 
-  const movieData =
+  const movieDatas =
     movieList?.results?.map((list) => ({
       id: list.id,
       title: list.title,
@@ -25,12 +25,12 @@ function MovieCard({ movieList, setMovieList, setMovieListLoading }) {
   // const { id, title, vote_average, poster_path, genres, overview } = detailData;
 
   // console.log(movieList);
-  // console.log(movieData);
+  // console.log(movieDatas);
 
   return (
     <>
       <ul className="movieList">
-        {movieData.map((card) => (
+        {movieDatas.map((card) => (
           <li key={card.id}>
             <Link key={card.id} to={`/details/${card.id}`}>
               <div className="movieCard">

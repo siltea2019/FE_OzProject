@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import useDebounce from '../hooks/useDebounce';
-import { CONFIG_API_TOKEN, SEARCH_URL } from './config';
+// import { API_TOKEN } from './config';
 import useAPI from '../hooks/useAPI';
 const API_TOKEN = import.meta.env.VITE_API_TOKEN;
 
 export default function Search({ movieList }) {
-  const [inputValue, setInputValue] = useState('');
+  /*  const [inputValue, setInputValue] = useState('');
 
   const [searchDebounce] = useDebounce(inputValue, 3000);
   const searchUrl = `https://api.themoviedb.org/3/search/movie?query=${searchDebounce}&include_adult=false&language=ko&page=1`;
@@ -37,7 +37,7 @@ export default function Search({ movieList }) {
     return getApiData, loading;
   };
 
-  console.log(getApiData);
+  console.log(getApiData); */
 
   return (
     <>
