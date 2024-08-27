@@ -49,7 +49,7 @@ export default function useAPI(url, CRUD) {
   // fetch할때 받아온 데이터(=jsonData)를 setGetApiData 상태함수에 담음
   // fetch가 성공하면 기초값이 true였던 setLoading 상태함수를 false로 바꾸어
   // fetch가 성공했다는 값을 확인할 수 있음
-  return { getApiData, url, loading };
+  return { getApiData, loading, url };
 }
 
 // TMdb에서 가져온 코드중 일부

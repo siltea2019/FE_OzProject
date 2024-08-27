@@ -6,6 +6,7 @@ import MovieDetail from './components/MovieDetail';
 import NavBar from './components/NavBar';
 import Login from './components/Login';
 import SignUp from './components/Signup';
+import Search from './components/Search';
 
 // 컴포넌트가 필요할때 소환하는 lazy
 // const MovieCard = lazy(() => import('./components/MovieCard'));
@@ -42,6 +43,10 @@ export default function App() {
               setmovieListLoading={setmovieListLoading}
             />
           }
+        />
+        <Route
+          path="/Search"
+          element={<Search setMovieList={setMovieList} />}
         />
         <Route path="/join" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />

@@ -14,25 +14,16 @@ export default function NavBar({ setMovieList }) {
         >
           Suving
         </div>
-        <div className="header_Buttons">
-          <button className="header_Buttons Setting" alt="다크모드설정">
-            다크모드설정
-          </button>
+        <div className="header_Buttons Search" alt="검색페이지">
           <button
-            className="header_Buttons Login"
-            alt="로그인"
-            onClick={() => headerNav('/join')}
+            className="header_Buttons Search"
+            alt="검색"
+            onClick={() => headerNav('/Search')}
           >
-            로그인
-          </button>
-          <button
-            className="header_Buttons Join"
-            alt="회원가입"
-            onClick={() => headerNav('/signup')}
-          >
-            회원가입
+            🔍
           </button>
         </div>
+
         <button className="header_Buttons Setting" alt="다크모드설정">
           다크모드
         </button>
