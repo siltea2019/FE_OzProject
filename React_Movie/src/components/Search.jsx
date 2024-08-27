@@ -6,7 +6,7 @@ const API_TOKEN = import.meta.env.VITE_API_TOKEN;
 export default function Search({ setMovieList }) {
   const [inputValue, setInputValue] = useState('');
   const [searchData, setSearchData] = useState(null);
-  const [searchDebounce] = useDebounce(inputValue, 1000);
+  const [searchDebounce] = useDebounce(inputValue, 2000);
   const url = `https://api.themoviedb.org/3/search/movie?query=${searchDebounce}&include_adult=false&language=ko&page=1`;
 
   // useEffect(() => {
@@ -35,22 +35,23 @@ export default function Search({ setMovieList }) {
     fetchAPI();
   }, [url]);
 
-  const searchList = searchData?.results;
+  // const searchList = searchData?.results;
+
+  const searchList =
+    searchData?.results?.map((list) => ({
+      id: list.id,
+      title: list.title,
+      poster_path: `http://image.tmdb.org/t/p/w200${list.poster_path}`,
+      vote_average: list.vote_average,
+    })) || [];
 
   console.log(searchList);
 
   // const { id, title, vote_average, poster_path, genres, overview } = searchData;
 
-  // const jsonData = fetch(url, options)
-  //   .then((response) => response.json())
-  //   .then((response) => console.log(response))
-  //   .catch((err) => console.error(err));
-
-  // console.log(jsonData);
-
   return (
     <>
-      <div className="header_Buttons">
+      <header className="header_Buttons">
         <input
           type="text"
           className="header_Buttons Input"
@@ -68,6 +69,24 @@ export default function Search({ setMovieList }) {
         >
           🔍
         </button>
+      </header>
+      <div>
+        <ul className="movieList">
+          {searchList.map((card) => (
+            <li key={card.id}>
+              {/* <Link key={card.id} to={`/details/${card.id}`}> */}
+              <div className="movieCard">
+                <img
+                  className="movieCard Poster"
+                  src={`https://image.tmdb.org/t/p/w200${card.poster_path}`}
+                />
+              </div>
+              <div>{card.title}</div>
+              <div>{card.vote_average}</div>
+              {/* </Link> */}
+            </li>
+          ))}
+        </ul>
       </div>
     </>
   );
