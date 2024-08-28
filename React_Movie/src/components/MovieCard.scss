@@ -1,0 +1,89 @@
+/* 메인 랜딩페이지 헤더 */
+.header {
+  position: fixed; // 상단에 고정
+  top: 0;
+  width: 100%;
+  // z-index: 1000; // 다른 요소들보다 위에 위치
+  padding: 5px; // 패딩 값을 5px로 줄임
+  background-color: $white-color; // 헤더 배경 색상 설정
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // 약간의 그림자 추가
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 영화리스트 정렬*/
+.movieList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; //카드간 간격 조정
+  justify-content: center;
+  padding: 20px;
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    background-color: $white-color;
+    border-radius: 10px;
+    overflow: hidden; // 포스터 이미지가 카드 밖으로 넘치지 않게
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s, transform 0.3s;
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .poster {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-bottom: 1px solid $gray-color; //구분선
+    }
+
+    .title,
+    .vote {
+      padding: 0.5rem;
+      text-align: center;
+      font-weight: $font-bold;
+    }
+
+    .title {
+      font-size: 1rem;
+      color: $point-color0;
+    }
+
+    .vote {
+      font-size: 0.875rem;
+      color: $gray-color;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .movieList {
+    justify-content: space-around;
+  }
+
+  .movieList .card {
+    width: 150px;
+  }
+
+  .movieList .card .poster {
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .movieList {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .movieList .card {
+    width: 100%;
+    max-width: 300px;
+  }
+}

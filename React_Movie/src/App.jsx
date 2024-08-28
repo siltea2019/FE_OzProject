@@ -1,27 +1,22 @@
 import { lazy, useEffect, useState } from 'react';
-import './App.css';
+import './App.scss';
 import { Route, Routes } from 'react-router-dom';
 import MovieCard from './components/MovieCard';
 import MovieDetail from './components/MovieDetail';
 import NavBar from './components/NavBar';
 import Login from './components/Login';
-import SignUp from './components/Signup';
+import SignUp from './components/SignUp';
 import Search from './components/Search';
-
-// 컴포넌트가 필요할때 소환하는 lazy
-// const MovieCard = lazy(() => import('./components/MovieCard'));
 
 export default function App() {
   const [movieList, setMovieList] = useState([]);
-  const [movieListLoading, setmovieListLoading] = useState(true);
+  const [movieListLoading, setMovieListLoading] = useState(true);
 
   console.log(movieList);
 
   return (
     <>
-      <header className="header">
-        {<NavBar setMovieList={setMovieList} />}
-      </header>
+      {<NavBar setMovieList={setMovieList} />}
       {/* Route 페이지 연결 */}
       <Routes>
         <Route
@@ -31,7 +26,7 @@ export default function App() {
               movieList={movieList}
               setMovieList={setMovieList}
               movieListLoading={movieListLoading}
-              setmovieListLoading={setmovieListLoading}
+              setMovieListLoading={setMovieListLoading}
             />
           }
         />
@@ -40,7 +35,7 @@ export default function App() {
           element={
             <MovieDetail
               movieListLoading={movieListLoading}
-              setmovieListLoading={setmovieListLoading}
+              setMovieListLoading={setMovieListLoading}
             />
           }
         />
@@ -48,7 +43,7 @@ export default function App() {
           path="/Search"
           element={<Search setMovieList={setMovieList} />}
         />
-        <Route path="/join" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
     </>

@@ -1,0 +1,43 @@
+// NavBar 스타일링
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  background-color: $white-color;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed; /* 상단 고정 */
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* 다른 요소 위에 위치하도록 설정 */
+}
+
+// 로고 부분
+.navbar-logo {
+  font-size: 2rem;
+  font-weight: $font-bold;
+  color: $point-color1;
+  cursor: pointer;
+  // cursor: pointer; /* 클릭 가능한 커서 */
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center; /* 세로 가운데 정렬 */
+}
+
+// nav 버튼
+.navbar-button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: $font-bold;
+  cursor: pointer;
+  padding: 0px 10px 0px; /* 버튼 패딩 */
+  margin-left: 10px; /* 버튼 간격 */
+  color: $gray-color;
+
+  &:hover {
+    color: $point-color1;
+  }
+}

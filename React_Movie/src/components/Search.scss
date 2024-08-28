@@ -1,0 +1,81 @@
+// 검색 컨테이너
+.search-container {
+  padding: 20px;
+  text-align: center;
+}
+
+// 검색창과 버튼
+.header-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header-input {
+  width: 300px;
+  padding: 5px;
+  border: none;
+  border-bottom: 2px solid $gray-color;
+  font-size: 1rem;
+  outline: none;
+  background-color: transparent;
+  transition: border-bottom-color 0.3s ease;
+
+  &:focus {
+    border-bottom-color: $point-color1;
+  }
+}
+
+// 검색 버튼
+.header-search-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin-left: 10px;
+  color: $gray-color;
+
+  &:hover {
+    color: $point-color1; /* 호버 시 색상 변경 */
+  }
+}
+
+// 검색 결과
+.search-results {
+  margin-top: 20px;
+}
+
+.movie-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.movie-card {
+  width: 180px;
+  text-align: center;
+}
+
+.movie-poster {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.movie-poster-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.movie-title {
+  margin-top: 10px;
+  font-weight: $font-bold;
+}
+
+.movie-vote {
+  font-size: 0.9rem;
+  color: $gray-color;
+}

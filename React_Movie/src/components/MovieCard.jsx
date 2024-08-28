@@ -2,15 +2,16 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import useAPI from '../hooks/useAPI';
 import { POPULAR_API_URL } from './config';
+import './MovieCard.scss';
 
-function MovieCard({ movieList, setMovieList, setmovieListLoading }) {
+function MovieCard({ movieList, setMovieList, setMovieListLoading }) {
   const listURL = `${POPULAR_API_URL}?language=ko`;
 
   const apiFecthData = useAPI(listURL, 'GET');
 
   useEffect(() => {
     setMovieList(apiFecthData.getApiData);
-    setmovieListLoading(false);
+    setMovieListLoading(false);
   }, [apiFecthData, setMovieList]);
 
   const movieDatas =
@@ -29,18 +30,18 @@ function MovieCard({ movieList, setMovieList, setmovieListLoading }) {
 
   return (
     <>
-      <ul className="movieList">
+      <ul className="movieList ">
         {movieDatas.map((card) => (
-          <li key={card.id}>
+          <li className="card " key={card.id}>
             <Link key={card.id} to={`/details/${card.id}`}>
-              <div className="movieCard">
-                <img
-                  className="movieCard Poster"
-                  src={`https://image.tmdb.org/t/p/w200${card.poster_path}`}
-                />
+              <img
+                className="poster"
+                src={`https://image.tmdb.org/t/p/w200${card.poster_path}`}
+              />
+              <div className="info">
+                <div className="title">{card.title}</div>
+                <div className="vote">{card.vote_average}</div>
               </div>
-              <div>{card.title}</div>
-              <div>{card.vote_average}</div>
             </Link>
           </li>
         ))}

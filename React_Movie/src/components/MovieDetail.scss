@@ -1,0 +1,83 @@
+// 상세정보 전체
+.movie-detail-container {
+  position: relative; /* 포스터와 블러 배경 위에 위치 */
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  overflow: hidden;
+}
+
+//
+.movie-detail-content {
+  position: relative; /* 자식 요소들이 절대 위치를 사용 */
+  display: flex;
+  max-width: 1200px;
+  gap: 40px;
+  z-index: 1;
+}
+
+// 배경이미지 -> 로딩문제 있음ㅎㅎ......ㅜㅜ
+.movie-detail-background {
+  position: absolute; /* 배경이 전체 영역을 덮도록 설정 */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover; /* 배경 이미지 크기 조정 */
+  background-position: center; /* 배경 이미지 중앙 정렬 */
+  filter: blur(20px); /* 블러 효과 */
+  z-index: 0; /* 가장 뒤에 위치 */
+}
+
+// 포스터
+.movie-detail-poster {
+  flex: 1; /* 가로 공간의 일부를 차지 */
+  text-align: center;
+  position: relative; /* 배경 위에 위치 */
+}
+
+.movie-detail-poster-img {
+  max-width: 100%;
+  border-radius: 10px;
+  z-index: 2; /* 배경 위에 오도록 설정 */
+}
+
+//
+.movie-detail-info {
+  flex: 2; /* 더 많은 공간을 차지 */
+  display: flex;
+  flex-direction: column; /* 수직 정렬 */
+  gap: 20px; /* 각 정보 사이의 간격 */
+  position: relative; /* 배경 위에 위치 */
+  z-index: 2; /* 배경 위에 오도록 설정 */
+}
+
+// 제목
+.movie-detail-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+// 평점
+.movie-detail-vote {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+// 장르
+.movie-detail-genres {
+  font-size: 1rem;
+  color: #777;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+}
+
+// 줄거리
+.movie-detail-overview {
+  font-size: 0.9rem;
+  color: #999;
+  line-height: 1.5;
+}

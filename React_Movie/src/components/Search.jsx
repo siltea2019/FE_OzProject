@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import useDebounce from '../hooks/useDebounce';
-// import { API_TOKEN } from './config';
+import './Search.scss';
 const API_TOKEN = import.meta.env.VITE_API_TOKEN;
 
 export default function Search({ setMovieList }) {
   const [inputValue, setInputValue] = useState('');
   const [searchData, setSearchData] = useState(null);
-  const [searchDebounce] = useDebounce(inputValue, 2000);
+  const [searchDebounce] = useDebounce(inputValue, 1300);
+  const [showInput, setShowInput] = useState(false);
   const url = `https://api.themoviedb.org/3/search/movie?query=${searchDebounce}&include_adult=false&language=ko&page=1`;
 
   // useEffect(() => {
@@ -35,8 +36,6 @@ export default function Search({ setMovieList }) {
     fetchAPI();
   }, [url]);
 
-  // const searchList = searchData?.results;
-
   const searchList =
     searchData?.results?.map((list) => ({
       id: list.id,
@@ -47,46 +46,49 @@ export default function Search({ setMovieList }) {
 
   console.log(searchList);
 
-  // const { id, title, vote_average, poster_path, genres, overview } = searchData;
-
   return (
     <>
-      <header className="header_Buttons">
-        <input
-          type="text"
-          className="header_Buttons Input"
-          placeholder="검색어를 입력해주세요"
-          title="검색어"
-          value={inputValue}
-          onChange={(e) => {
-            setInputValue(e.target.value);
-          }}
-        />
-        <button
-          className="header_Buttons Search"
-          alt="검색"
-          onClick={() => setInputValue(inputValue)}
-        >
-          🔍
-        </button>
-      </header>
-      <div>
-        <ul className="movieList">
-          {searchList.map((card) => (
-            <li key={card.id}>
-              {/* <Link key={card.id} to={`/details/${card.id}`}> */}
-              <div className="movieCard">
-                <img
-                  className="movieCard Poster"
-                  src={`https://image.tmdb.org/t/p/w200${card.poster_path}`}
-                />
-              </div>
-              <div>{card.title}</div>
-              <div>{card.vote_average}</div>
-              {/* </Link> */}
-            </li>
-          ))}
-        </ul>
+      <div className="search-container">
+        <header className="header_buttons">
+          {showInput ? (
+            <input
+              type="text"
+              className="header-input "
+              placeholder="검색어를 입력해주세요"
+              title="검색어"
+              value={inputValue}
+              onChange={(e) => {
+                setInputValue(e.target.value);
+              }}
+            />
+          ) : null}
+          <button
+            className="header-search-button"
+            alt="검색"
+            onClick={() => setShowInput(!showInput)}
+          >
+            🔍
+          </button>
+        </header>
+        <div className="search-results">
+          <ul className="movie-list">
+            {searchList.map((card) => (
+              <li key={card.id} className="movie-card">
+                {/* <Link key={card.id} to={`/details/${card.id}`}> */}
+                <div className="movie-poster">
+                  <img
+                    className="movie-poster-image"
+                    src={`https://image.tmdb.org/t/p/w200${card.poster_path}`}
+                    alt={card.title}
+                  />
+                </div>
+                <div className="movie-title">{card.title}</div>
+                <div className="movie-vote">{card.vote_average}</div>
+                {/* </Link> */}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </>
   );
@@ -119,7 +121,6 @@ export default function Search({ setMovieList }) {
 // }, [debounceValue, headerNav]);
 
 // 2버전
-
 /*  const [inputValue, setInputValue] = useState('');
 
   const [searchDebounce] = useDebounce(inputValue, 3000);

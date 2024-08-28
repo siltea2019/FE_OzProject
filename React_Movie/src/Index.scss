@@ -1,0 +1,82 @@
+// 전역변수 설정-color
+$base-color1: #a29eb5;
+$base-color2: #d6d2d5;
+$base-color3: #eaf2f6;
+$mid-color1: #709b89;
+$mid-color2: #aad4c6;
+$mid-color2: #6d6b9d;
+$variation-color2: #d7c6d1;
+$variation-color2: #5d3e6a;
+$variation-color2: #415c87;
+$point-color0: #2c3056;
+$point-color1: #2a46d1;
+
+$black-color: #000000;
+$gray-color: #555555;
+$white-color: #ffffff;
+
+$high-opacity: 0.8;
+$mid-opacity: 0.5;
+$low-opacity: 0.2;
+
+$font-bold: 800;
+$font-default: 400;
+$font-thin: 200;
+
+@mixin page-default {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin center-flex($disp: flex, $justi-con: center, $ali-item: center) {
+  display: $disp;
+  justify-content: $justi-con;
+  align-items: $ali-item;
+}
+
+body {
+  @include page-default;
+  font-size: 16px; // 기본 폰트 크기 설정
+  color: $gray-color;
+  font-family: 'Arial', sans-serif;
+  background-color: $base-color3;
+  padding-top: 40px; // 헤더의 높이만큼 상단에 여백 추가
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  border: 1px solid $gray-color;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// /* 전체페이지 디폴트 */
+// :root {
+//   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+//   font-size: 16px;
+
+//   color-scheme: light dark;
+//   color: rgba(0, 0, 0, 0.87);
+//   background-color: rgba(255, 255, 255, 0.87);
+
+//   font-synthesis: none;
+//   text-rendering: optimizeLegibility;
+
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+// }
