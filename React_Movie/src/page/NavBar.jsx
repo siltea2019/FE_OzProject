@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import Search from './Search';
-import './NavBar.scss';
+import '../CSS/NavBar.scss';
 
 export default function NavBar({ setMovieList }) {
   const headerNav = useNavigate();

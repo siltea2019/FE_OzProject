@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import useAPI from '../hooks/useAPI';
-import { POPULAR_API_URL } from './config';
-import './MovieCard.scss';
+import { POPULAR_API_URL } from '../assets/data/config';
+import '../CSS/MovieCard.scss';
 
 function MovieCard({ movieList, setMovieList, setMovieListLoading }) {
   const listURL = `${POPULAR_API_URL}?language=ko`;

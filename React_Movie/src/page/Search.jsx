@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import useDebounce from '../hooks/useDebounce';
-import './Search.scss';
+import '../CSS/Search.scss';
 const API_TOKEN = import.meta.env.VITE_API_TOKEN;
 
 export default function Search({ setMovieList }) {

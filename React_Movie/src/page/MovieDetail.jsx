@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useAPI from '../hooks/useAPI';
-import './MovieDetail.scss';
+import '../CSS/MovieDetail.scss';
 
 function MovieDetail({ setMovieListLoading }) {
   // path="/details/:movieId"

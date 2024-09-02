@@ -1,12 +1,12 @@
 import { lazy, useEffect, useState } from 'react';
-import './App.scss';
+import './CSS/App.scss';
 import { Route, Routes } from 'react-router-dom';
-import MovieCard from './components/MovieCard';
-import MovieDetail from './components/MovieDetail';
-import NavBar from './components/NavBar';
-import Login from './components/Login';
-import SignUp from './components/SignUp';
-import Search from './components/Search';
+import MovieCard from './page/MovieCard';
+import MovieDetail from './page/MovieDetail';
+import NavBar from './page/NavBar';
+import Login from './page/Login';
+import SignUp from './page/SignUp';
+import Search from './page/Search';
 
 export default function App() {
   const [movieList, setMovieList] = useState([]);

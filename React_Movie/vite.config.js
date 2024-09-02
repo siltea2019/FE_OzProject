@@ -7,7 +7,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "/src/Index.scss";`,
+        additionalData: `@import "/src/CSS/Index.scss";`,
       },
     },
   },
