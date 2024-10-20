@@ -6,15 +6,16 @@ import '../CSS/MovieCard.scss';
 
 function MovieCard({ movieList, setMovieList, setMovieListLoading }) {
   const listURL = `${POPULAR_API_URL}?language=ko`;
+  const { token, setToken } = useState(null);
 
-  const apiFecthData = useAPI(listURL, 'GET');
+  const apiFetchData = useAPI(listURL, 'GET');
 
   useEffect(() => {
-    setMovieList(apiFecthData.getApiData);
+    setMovieList(apiFetchData.getApiData);
     setMovieListLoading(false);
-  }, [apiFecthData, setMovieList]);
+  }, [apiFetchData, setMovieList, setMovieListLoading]);
 
-  const movieDatas =
+  const movieData =
     movieList?.results?.map((list) => ({
       id: list.id,
       title: list.title,
@@ -25,13 +26,19 @@ function MovieCard({ movieList, setMovieList, setMovieListLoading }) {
   // 틀린코드 같은데 왜 적용이 안되는지 확인해보고 공부
   // const { id, title, vote_average, poster_path, genres, overview } = detailData;
 
-  // console.log(movieList);
-  // console.log(movieDatas);
+  // 로그인은 되고 토큰도 정상적으로 저장이 되지만 로그인상태관리가 필요함
+  // useEffect(() => {
+  //   const tokenString = localStorage.getItem('KakaoToken');
+  //   if (tokenString) {
+  //     const parsedToken = JSON.parse(tokenString);
+  //     setToken(parsedToken);
+  //   }
+  // }, []);
 
   return (
     <>
       <ul className="movieList ">
-        {movieDatas.map((card) => (
+        {movieData.map((card) => (
           <li className="card " key={card.id}>
             <Link key={card.id} to={`/details/${card.id}`}>
               <img

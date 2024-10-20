@@ -7,6 +7,8 @@ import NavBar from './page/NavBar';
 import Login from './page/Login';
 import SignUp from './page/SignUp';
 import Search from './page/Search';
+import KakaoCallback from './page/callback';
+import { QueryClientProvider } from '@tanstack/react-query';
 
 export default function App() {
   const [movieList, setMovieList] = useState([]);
@@ -44,6 +46,7 @@ export default function App() {
           element={<Search setMovieList={setMovieList} />}
         />
         <Route path="/login" element={<Login />} />
+        <Route path="/callback/login/kakao" element={<KakaoCallback />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
     </>
